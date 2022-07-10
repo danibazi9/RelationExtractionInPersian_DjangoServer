@@ -1,0 +1,59 @@
+{% extends "main.html" %}
+{% block content %}
+    <h1 style="text-align: center">RelationExtractionInPersian</h1>
+    <br>
+    <p style="text-align: center">RelationExtractionInPersian is a relation extraction framework for Persian texts</p>
+    <br>
+    <form method="POST" style=
+            "width: 50%;
+              background-color: aliceblue;
+              position: center;
+              box-sizing: border-box;
+              transform: translate(50%, 0%);
+              border-style: ridge;
+              border-color: darkslateblue;
+    ">
+        <div style="background-color: lightsteelblue; width: 100% ; padding: 12px;">
+            <p>Choose your desired Universal Dependency: </p>
+            <label class="radio-inline"><input type="radio" name="ud_type" value="seraji"
+                                               {% if ud_type == 'seraji' %}checked{% endif %}>Seraji</label>
+            <label class="radio-inline"><input type="radio" name="ud_type" value="perdt"
+                                               {% if ud_type == 'perdt' %}checked{% endif %}>PerDT</label>
+        </div>
+        <p style="padding: 12px;">Enter your text in Persian: </p>
+
+        <div class="form-outline mb-4">
+            <textarea name="input_text" class="form-control" rows="1"
+                      style=" background-color: whitesmoke; resize: vertical; padding: 12px; white-space: nowrap;
+                      text-align: right; direction: rtl">{{ input_text }}</textarea>
+            <label class="form-label" for="form4Example3"></label>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block mb-4">Submit</button>
+    </form>
+    <form style="width: 50%;
+              background-color: palevioletred;
+              position: center;
+              padding: 12px 20px;
+              box-sizing: border-box;
+              transform: translate(50%, 0%);
+              border-style: ridge;
+              border-color: darkslateblue;">
+
+        <p style="padding: 12px;">Conll-Format: </p>
+        <div class="form-outline mb-4">
+    <textarea name="conll_text" class="form-control" id="form4Example3" rows="6"
+              style=" background-color: whitesmoke; resize: none; font-size: small" readonly> {{ conll_text }}
+    </textarea>
+            <label class="form-label" for="form4Example3"></label>
+        </div>
+        <p style="padding: 12px;">Output: </p>
+        <div class="form-outline mb-4">
+    <textarea name="output_text" class="form-control" id="form4Example3" rows="4"
+              style="background-color: whitesmoke; resize: none; font-size: small; text-align: right; direction: rtl"
+              readonly> {{ output_text }}
+    </textarea>
+            <label class="form-label" for="form4Example3"></label>
+        </div>
+    </form>
+
+{% endblock %}
